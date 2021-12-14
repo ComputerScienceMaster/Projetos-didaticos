@@ -36,6 +36,12 @@ Essa fase deverá implementar as funcionalidades descritas na seçãode requisit
 - RF04 - O sistema deverá permitir o registro (e manipulação) de apontamentos que contém: data atual, hora, peso atual, número de escapadas (opcional de inserção de descrição), número de jejum (opcional a inserção de horário de jejum).
 - RF05 - O Sistema deverá mostrar na tela inicial um resumo das atividades (agrupados por semana) com possibilidade de clicar e expandir para mostrar a semana toda (detalhado por dias)
 - RF06 - O sistema deverá mostrar um "score" baseado no saldo das ultimas 4 semanas. O número de escapadas e o cálculo do ganho de peso deverá ser usado.
+- RF07 - O sistema deve ser responsivo (funcionar para mobile e desktop)
+
+### Requisitos não funcionais
+
+- RNF01 - O sistema deve ser codificado e documentado de forma correta, usando convenções de nomeação de variáveis, métodos e classes
+- RNF02 - O sistema deve responder e processar os dados rapidamente evitando chamadas desnecessárias ao servidor
 
 
 Para a segunda fase, o projeto deverá ser implementado usando as seguintes tecnologias:

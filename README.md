@@ -1,4 +1,4 @@
-# Diet Control
+# Controlador de Dieta
 
 Seja bem vindo ao repositório do aplicativo "Diet Control". Esse projeto foi idealizado para ajudar pacientes que necessitam realizar o controle diário/semanal/mensal da sua dieta seguindo uma metodologia bastante específica de controle. O aplicativo poderá ser construído usando qualquer linguagem/tecnologia tanto para web ou mobile desde que siga todos os requisitos do projeto. 
 

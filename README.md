@@ -1,4 +1,4 @@
-# Controlador de Dieta
+# Controlador de dieta
 
 Seja bem vindo ao repositório do aplicativo "Diet Control". Esse projeto foi idealizado para ajudar pacientes que necessitam realizar o controle diário/semanal/mensal da sua dieta seguindo uma metodologia bastante específica de controle. O aplicativo poderá ser construído usando qualquer linguagem/tecnologia tanto para web ou mobile desde que siga todos os requisitos do projeto. 
 
@@ -14,8 +14,8 @@ O primeiro projeto será o MVP do produto, ou seja, uma sistema deverá ser impl
 
 - RF01 - O sistema deve possuir uma funcionalidade de login e senha (mesmo que esse sistema seja projetado para funcionar com apenas 1 usuário)
 - RF02 - O sistema permitir o registro diário de peso, "escapadas" e jejum
-- RF03 - O balanço (Relatório) deve permitir mostrar os registros de apenas 1 dia ou agrupar esses registros por semana ou mensalmente
-- RF04 - O balanço deverá mostrar a evolução de peso, saldo de escapadas/jejum dado um determinado periodo
+- RF03 - O balanço (Relatório) deve permitir mostrar os registros de um mês
+- RF04 - O balanço deverá mostrar a média de peso, saldo de escapadas/jejum do mês e uma mensagem indicando o saldo final.
 
 O MVP do projeto será implementado usando as seguintes tecnologias:
 1. HTML

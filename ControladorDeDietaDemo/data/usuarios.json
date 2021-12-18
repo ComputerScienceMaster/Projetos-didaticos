@@ -1,0 +1,9 @@
+[
+	{ 
+		"username": "rosmo",
+		"senha": "12345",
+		"nome": "Rodrigo Osmo",
+		"email": "rosmo@gmail.com",
+		"dataDeNascimento": "11/10/1990"
+	}
+]

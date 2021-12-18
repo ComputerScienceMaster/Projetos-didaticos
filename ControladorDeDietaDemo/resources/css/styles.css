@@ -1,0 +1,269 @@
+@media only screen and (max-width: 800px) {
+  .center {
+    margin: auto;
+    width: 100%;
+  }
+
+  .registro-diario {
+    float: left;
+    padding: 0em;
+    border-radius: 5px;
+    text-align: left;
+    margin-left: 0%;
+    background-color: lightblue;
+  }
+
+  h1 {
+    font-family: Arial;
+  }
+
+  .input {
+    width: 100%;
+    float: left;
+    padding-bottom: 1em;
+  }
+
+  .input input {
+    border-radius: 5px;
+    height: 2em;
+    text-align: center;
+  }
+
+  .container {
+    float: left;
+    width: 100%;
+    text-align: center;
+  }
+
+  .header {
+    float: left;
+    width: 100%;
+    text-align: center;
+  }
+
+  .messages {
+    float: left;
+    padding: 0.5em;
+    font-family: arial;
+    border-radius: 10px;
+    margin: 0.5em;
+    text-align: center;
+    width: 100%;
+    background-color: lightblue;
+  }
+
+  .navbar {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    color: darkblue;
+    font-family: Arial;
+    font-size: 1.2em;
+  }
+
+  .navbar a {
+    float: left;
+    padding: 1em;
+    margin: 0.2em;
+    border-radius: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: #2a6a34;
+  }
+
+  .navbar input {
+    float: left;
+    padding: 1em;
+    margin: 0.2em;
+    margin-left: 5%;
+    border-radius: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: rgb(247, 74, 74);
+  }
+
+  .table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px 15px;
+  }
+
+  .table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  .table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+
+  .table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }
+
+  .headers {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .months {
+    padding: 1em;
+    background-color: #efefef;
+  }
+
+  .resumoMensal {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .center {
+    margin: auto;
+    width: 35%;
+  }
+
+  .registro-diario {
+    float: left;
+    padding: 3em;
+    border-radius: 5px;
+    text-align: left;
+    margin-left: 30%;
+    background-color: lightblue;
+  }
+
+  h1 {
+    font-family: Arial;
+  }
+
+  .input {
+    width: 100%;
+    float: left;
+    padding-bottom: 1em;
+  }
+
+  .input input {
+    border-radius: 5px;
+    height: 2em;
+    text-align: center;
+  }
+
+  .container {
+    float: left;
+    width: 100%;
+    text-align: center;
+  }
+
+  .header {
+    float: left;
+    width: 100%;
+    text-align: center;
+  }
+
+  .messages {
+    float: left;
+    padding: 0.5em;
+    font-family: arial;
+    border-radius: 10px;
+    margin: 0.5em;
+    text-align: center;
+    width: 100%;
+    background-color: lightblue;
+  }
+
+  .navbar {
+    float: left;
+    width: 100%;
+    margin-left: 30%;
+    color: darkblue;
+    font-family: Arial;
+    font-size: 1.2em;
+  }
+
+  .navbar a {
+    float: left;
+    padding: 1em;
+    margin: 0.2em;
+    border-radius: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: #2a6a34;
+  }
+
+  .navbar input {
+    float: left;
+    padding: 1em;
+    margin: 0.2em;
+    margin-left: 17.5%;
+    border-radius: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: indianred;
+  }
+
+  .table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px 15px;
+  }
+
+  .table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  .table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+
+  .table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }
+
+  .headers {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .months {
+    padding: 1em;
+    background-color: #efefef;
+  }
+
+  .resumoMensal {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}

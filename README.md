@@ -1,8 +1,11 @@
 # Controlador de dieta
 
-Seja bem vindo ao repositório do aplicativo "Diet Control". Esse projeto foi idealizado para ajudar pacientes que necessitam realizar o controle diário/semanal/mensal da sua dieta seguindo uma metodologia bastante específica de controle. O aplicativo poderá ser construído usando qualquer linguagem/tecnologia tanto para web ou mobile desde que siga todos os requisitos do projeto. 
+Seja bem vindo ao repositório do aplicativo "Controlador de Dieta". 
+
+Esse projeto foi idealizado para ajudar pacientes que necessitam realizar o controle diário/semanal/mensal da sua dieta seguindo uma metodologia bem definida de controle. O aplicativo poderá ser construído usando qualquer linguagem/tecnologia tanto para web ou mobile desde que siga todos os requisitos do projeto. 
 
 O projeto inicialmente será desevolvido em duas fases principais: 
+
 1- Proposta do MVP (mínimo produto viável) em que todos os requisitos mínimos devem ser satisfeitos
 2- Versão 1.0 do aplicativo será lançada quando todo os requisitos mínimos e também os requisitos funcionais/não funcionais estiverem implementados e testados.
 
@@ -12,9 +15,9 @@ O primeiro projeto será o MVP do produto, ou seja, uma sistema deverá ser impl
 
 ### Requisitos mínimos
 
-- RF01 - O sistema deve possuir uma funcionalidade de login e senha (mesmo que esse sistema seja projetado para funcionar com apenas 1 usuário)
-- RF02 - O sistema permitir o registro diário de peso, "escapadas" e jejum
-- RF03 - O balanço (Relatório) deve permitir mostrar os registros de um mês
+- RF01 - O sistema deve possuir uma funcionalidade de login e senha (mesmo que esse sistema seja projetado para funcionar com apenas 1 usuário);
+- RF02 - O sistema permitir o registro diário de peso, "escapadas" e jejum;
+- RF03 - O balanço (Relatório) deve permitir mostrar os registros de um mês;
 - RF04 - O balanço deverá mostrar a média de peso, saldo de escapadas/jejum do mês e uma mensagem indicando o saldo final.
 
 O MVP do projeto será implementado usando as seguintes tecnologias:

@@ -6,8 +6,8 @@ Esse projeto foi idealizado para ajudar pacientes que necessitam realizar o cont
 
 O projeto inicialmente será desevolvido em duas fases principais: 
 
-1- Proposta do MVP (mínimo produto viável) em que todos os requisitos mínimos devem ser satisfeitos
-2- Versão 1.0 do aplicativo será lançada quando todo os requisitos mínimos e também os requisitos funcionais/não funcionais estiverem implementados e testados.
+1. Proposta do MVP (mínimo produto viável) em que todos os requisitos mínimos devem ser satisfeitos
+2. Versão 1.0 do aplicativo será lançada quando todo os requisitos mínimos e também os requisitos funcionais/não funcionais estiverem implementados e testados.
 
 ## 🚲 Fase 01 - MVP
 

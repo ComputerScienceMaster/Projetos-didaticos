@@ -28,7 +28,7 @@ O MVP do projeto será implementado usando as seguintes tecnologias:
 
 ##  🚗 FASE 02 - Versão 1.0
 
-Essa fase deverá implementar as funcionalidades descritas na seçãode requisitos funcionais e também não funcionais, são eles:
+Essa fase deverá implementar as funcionalidades descritas na seção de requisitos funcionais e também não-funcionais, são eles:
 
 ### 🎯 Requisitos funcionais
 

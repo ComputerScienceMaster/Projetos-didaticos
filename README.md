@@ -49,8 +49,8 @@ Essa fase deverá implementar as funcionalidades descritas na seção de requisi
 Para a segunda fase, o projeto deverá ser implementado usando as seguintes tecnologias:
 1. ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 2. ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)* 
-3. ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 4. ![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+3. ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 5. ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
 
 Obs: o responsivo é opcional nessa fase. Também é possível o uso de frameworks como o bootstrap.

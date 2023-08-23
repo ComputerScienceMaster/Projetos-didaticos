@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "d44a60be-6c30-44bd-92c2-e829b70cdf16",
+		"name": "medicalAppointment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24236104"
+	},
+	"item": [
+		{
+			"name": "Save Appointment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.collectionVariables.set(\"savedAppointment\", resposta.id);\r",
+							"pm.collectionVariables.set(\"savedDoctor\", resposta.doctor.id);\r",
+							"pm.collectionVariables.set(\"savedPatient\", resposta.patient.id);\r",
+							"\r",
+							"pm.test(\"Sucesso na inserção\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appointmentDate\": \"2022-11-04\",\r\n    \"doctor\": {{savedDoctor}},\r\n    \"location\": \"São Carlos - SP\",\r\n    \"patient\": {{savedPatient}},\r\n    \"returnDate\": \"2022-11-05\",\r\n    \"status\": \"ONHOLD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/appointment",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"appointment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Appointment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"appointmentDate\": \"2022-11-04\",\r\n  \"doctor\": 29,\r\n  \"location\": \"São Carlos - SP\",\r\n  \"patient\": 53,\r\n  \"returnDate\": \"2022-11-05\",\r\n  \"status\": \"ONHOLD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/appointment",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Nov 2022 20:22:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"status\": \"ONHOLD\",\n    \"location\": \"São Carlos - SP\",\n    \"appointmentDate\": \"2022-11-04\",\n    \"returnDate\": \"2022-11-05\",\n    \"patient\": {\n        \"id\": 53,\n        \"name\": \"John doe\",\n        \"gender\": \"male\",\n        \"email\": \"john@doe.com\",\n        \"phone\": \"35913591\",\n        \"address\": {\n            \"id\": 85,\n            \"country\": \"Brazil\",\n            \"state\": \"São Paulo\",\n            \"city\": \"São Sebastião\",\n            \"street\": \"Rua dos bobos Nº 10\",\n            \"number\": 1234,\n            \"complement\": \"house\"\n        }\n    },\n    \"doctor\": {\n        \"id\": 29,\n        \"name\": \"Vinicius dos santos\",\n        \"gender\": \"male\",\n        \"email\": \"vinicius@gmail.com\",\n        \"phone\": \"0846408409840\",\n        \"medicalSpecialty\": \"Otorrino\",\n        \"isSurgeon\": true\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Appointment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"    \r",
+							"pm.test(\"Verifica se os dados foram atualizados\", function () {\r",
+							"    console.log(resposta);\r",
+							"    pm.expect(resposta.location).to.be.equals(\"São Paulo - SP\");\r",
+							"    pm.expect(resposta.status).to.be.equals(\"COMPLETE\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{savedAppointment}},\r\n    \"appointmentDate\": \"2022-11-04\",\r\n    \"doctor\": {{savedDoctor}},\r\n    \"location\": \"São Paulo - SP\",\r\n    \"patient\": {{savedPatient}},\r\n    \"returnDate\": \"2022-11-05\",\r\n    \"status\": \"COMPLETE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/appointment",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"appointment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Appointment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 14,\r\n    \"appointmentDate\": \"2022-11-04\",\r\n    \"doctor\": 44,\r\n    \"location\": \"São Paulo - SP\",\r\n    \"patient\": 68,\r\n    \"returnDate\": \"2022-11-05\",\r\n    \"status\": \"COMPLETE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/appointment",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Nov 2022 21:14:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 14,\n    \"status\": \"COMPLETE\",\n    \"location\": \"São Paulo - SP\",\n    \"appointmentDate\": \"2022-11-04\",\n    \"returnDate\": \"2022-11-05\",\n    \"patient\": {\n        \"id\": 68,\n        \"name\": \"John doe\",\n        \"gender\": \"male\",\n        \"email\": \"john@doe.com\",\n        \"phone\": \"35913591\",\n        \"address\": {\n            \"id\": 100,\n            \"country\": \"Brazil\",\n            \"state\": \"São Paulo\",\n            \"city\": \"São Sebastião\",\n            \"street\": \"Rua dos bobos Nº 10\",\n            \"number\": 1234,\n            \"complement\": \"house\"\n        }\n    },\n    \"doctor\": {\n        \"id\": 44,\n        \"name\": \"Vinicius dos santos\",\n        \"gender\": \"male\",\n        \"email\": \"vinicius@gmail.com\",\n        \"phone\": \"0846408409840\",\n        \"medicalSpecialty\": \"Otorrino\",\n        \"isSurgeon\": true\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "findAllAppointments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.collectionVariables.set(\"savedAppointment\", pm.response.json()[0].id)\r",
+							"\r",
+							"pm.test(\"Busca efetuada com sucesso\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/appointment/list",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"appointment",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Busca por ID efetuada\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/appointment/{{savedAppointment}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"appointment",
+						"{{savedAppointment}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "findById",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/appointment/{{savedAppointment}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"appointment",
+								"{{savedAppointment}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Nov 2022 21:06:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"status\": \"ONHOLD\",\n    \"location\": \"São Carlos - SP\",\n    \"appointmentDate\": \"2022-11-04\",\n    \"returnDate\": \"2022-11-05\",\n    \"patient\": {\n        \"id\": 60,\n        \"name\": \"John doe\",\n        \"gender\": \"male\",\n        \"email\": \"john@doe.com\",\n        \"phone\": \"35913591\",\n        \"address\": {\n            \"id\": 92,\n            \"country\": \"Brazil\",\n            \"state\": \"São Paulo\",\n            \"city\": \"São Sebastião\",\n            \"street\": \"Rua dos bobos Nº 10\",\n            \"number\": 1234,\n            \"complement\": \"house\"\n        }\n    },\n    \"doctor\": {\n        \"id\": 36,\n        \"name\": \"Vinicius dos santos\",\n        \"gender\": \"male\",\n        \"email\": \"vinicius@gmail.com\",\n        \"phone\": \"0846408409840\",\n        \"medicalSpecialty\": \"Otorrino\",\n        \"isSurgeon\": true\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deletado com sucesso\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/appointment/{{savedAppointment}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"appointment",
+						"{{savedAppointment}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/appointment/{{savedAppointment}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"appointment",
+								"{{savedAppointment}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "7"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Nov 2022 21:02:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Sucesso"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "savedDoctor",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "savedPatient",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "savedAppointment",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

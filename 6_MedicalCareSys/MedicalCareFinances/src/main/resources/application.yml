@@ -1,0 +1,7 @@
+server:
+  port: 9500
+  rabbitmq:
+    addresses: localhost:5672
+    adminAddresses: http://localhost:15672
+    username: admin
+    password: 123456

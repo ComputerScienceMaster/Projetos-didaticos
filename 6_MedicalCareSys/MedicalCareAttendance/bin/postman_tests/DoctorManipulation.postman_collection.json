@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "0e5c39b8-c9ce-4100-b1ba-9d2f7542fdf1",
+		"name": "DoctorManipulation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24236104"
+	},
+	"item": [
+		{
+			"name": "Save Doctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.collectionVariables.set(\"savedDoctor\", resposta.id);\r",
+							"\r",
+							"pm.test(\"Sucesso na inserção\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"vinicius@gmail.com\",\r\n  \"gender\": \"male\",\r\n  \"isSurgeon\": true,\r\n  \"medicalSpecialty\": \"Otorrino\",\r\n  \"name\": \"Vinicius dos santos\",\r\n  \"phone\": \"0846408409840\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/doctor",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"doctor"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Doctor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"vinicius@gmail.com\",\r\n  \"gender\": \"male\",\r\n  \"isSurgeon\": true,\r\n  \"medicalSpecialty\": \"Otorrino\",\r\n  \"name\": \"Vinicius dos santos\",\r\n  \"phone\": \"0846408409840\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/doctor",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"doctor"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Nov 2022 19:56:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 20,\n    \"name\": \"Vinicius dos santos\",\n    \"gender\": \"male\",\n    \"email\": \"vinicius@gmail.com\",\n    \"phone\": \"0846408409840\",\n    \"medicalSpecialty\": \"Otorrino\",\n    \"isSurgeon\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Doctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"    \r",
+							"pm.test(\"Verifica se os dados foram atualizados\", function () {\r",
+							"    pm.expect(resposta.name).to.be.equals(\"jonas dos santos\");\r",
+							"    pm.expect(resposta.email).to.be.equals(\"jonas@gmail.com\");\r",
+							"    pm.expect(resposta.gender).to.be.equals(\"female\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{savedDoctor}},\r\n    \"email\": \"jonas@gmail.com\",\r\n    \"gender\": \"female\",\r\n    \"isSurgeon\": true,\r\n    \"medicalSpecialty\": \"Gastro\",\r\n    \"name\": \"jonas dos santos\",\r\n    \"phone\": \"0846408409840\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/doctor",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"doctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllDoctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Busca efetuada com sucesso\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/doctor/list",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"doctor",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Busca por ID efetuada\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/doctor/{{savedDoctor}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"doctor",
+						"{{savedDoctor}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deletado com sucesso\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/doctor/{{savedDoctor}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"doctor",
+						"{{savedDoctor}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "savedDoctor",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

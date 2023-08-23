@@ -1,0 +1,8 @@
+## postgress container
+
+docker run --env=POSTGRES_PASSWORD=12345 -p 5432:5432 -d postgres
+
+
+## rabbitmq
+
+docker run --env=RABBITMQ_DEFAULT_USER=admin --env=RABBITMQ_DEFAULT_PASS=123456 --network=rabbitmq_default -p 15672:15672 -p 5672:5672 --restart=always -d rabbitmq:3.11-management

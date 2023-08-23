@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "721bb648-d8d0-42d1-9f67-053700414beb",
+		"name": "PatientManipulation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24236104"
+	},
+	"item": [
+		{
+			"name": "Save Patient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.collectionVariables.set(\"savedPatientID\", resposta.id);\r",
+							"pm.collectionVariables.set(\"address\", JSON.stringify(resposta.address));\r",
+							"\r",
+							"pm.test(\"Sucesso na inserção\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John doe\",\r\n    \"email\": \"john@doe.com\",\r\n    \"gender\": \"male\",\r\n    \"phone\": \"35913591\",\r\n    \"address\":{\r\n        \"city\": \"São Sebastião\",\r\n        \"complement\": \"house\",\r\n        \"country\": \"Brazil\",\r\n        \"number\": 1234,\r\n        \"state\": \"São Paulo\",\r\n        \"street\": \"Rua dos bobos Nº 10\"\r\n    } \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/patient",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Patient",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John doe\",\r\n    \"email\": \"john@doe.com\",\r\n    \"gender\": \"male\",\r\n    \"phone\": \"35913591\",\r\n    \"address\":{\r\n        \"city\": \"São Sebastião\",\r\n        \"complement\": \"house\",\r\n        \"country\": \"Brazil\",\r\n        \"number\": 1234,\r\n        \"state\": \"São Paulo\",\r\n        \"street\": \"Rua dos bobos Nº 10\"\r\n    } \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/patient",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Nov 2022 19:56:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 44,\n    \"name\": \"John doe\",\n    \"gender\": \"male\",\n    \"email\": \"john@doe.com\",\n    \"phone\": \"35913591\",\n    \"address\": {\n        \"id\": 76,\n        \"country\": \"Brazil\",\n        \"state\": \"São Paulo\",\n        \"city\": \"São Sebastião\",\n        \"street\": \"Rua dos bobos Nº 10\",\n        \"number\": 1234,\n        \"complement\": \"house\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Patient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"    \r",
+							"pm.test(\"Verifica se os dados foram atualizados\", function () {\r",
+							"    pm.expect(resposta.name).to.be.equals(\"Jonas Brothers\");\r",
+							"    pm.expect(resposta.email).to.be.equals(\"brothers@doe.com\");\r",
+							"    pm.expect(resposta.gender).to.be.equals(\"female\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{savedPatientID}},\r\n    \"name\": \"Jonas Brothers\",\r\n    \"email\": \"brothers@doe.com\",\r\n    \"gender\": \"female\",\r\n    \"phone\": \"0501518161\",\r\n    \"address\":{{address}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/patient",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllPatients",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.collectionVariables.set(\"validPatient\", resposta[0].id);\r",
+							"\r",
+							"\r",
+							"pm.test(\"Busca efetuada com sucesso\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/patient/list",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"patient",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Busca por ID efetuada\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/patient/{{validPatient}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"patient",
+						"{{validPatient}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deletado com sucesso\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/patient/{{validPatient}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"patient",
+						"{{validPatient}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "validPatient",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "savedPatient",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "address",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "savedPatientID",
+			"value": ""
+		}
+	]
+}
